@@ -279,7 +279,7 @@ class WazirxAPI
      * @return mixed
      * @throws \Exception
      */
-    public function sendApiRequest($url, $method)
+    private function sendApiRequest($url, $method)
     {
         try {
             if ($method == 'POST')

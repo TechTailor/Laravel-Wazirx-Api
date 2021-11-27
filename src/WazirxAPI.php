@@ -25,9 +25,6 @@ class WazirxAPI
         'v1/ticker/24hr',
     ];
 
-    const FORBIDDEN_ERROR = 'Forbidden';
-    const BAD_REQUEST = 'Bad Request';
-
     /**
      * Constructor for WazirxAPI.
      * @param string  $key     API key

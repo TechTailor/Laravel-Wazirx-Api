@@ -1,6 +1,6 @@
 ![](https://banners.beyondco.de/Laravel-Wazirx-API.png?theme=light&packageManager=composer+require&packageName=techtailor%2Flaravel-wazirx-api&pattern=architect&style=style_2&description=A+laravel+wrapper+for+the+WazirX+API.&md=1&showWatermark=0&fontSize=100px&images=server)
 
-[![GitHub release](https://img.shields.io/github/release/techtailor/laravel-wazirx-api.svg?style=for-the-badge&&colorB=7E57C2)](https://packagist.org/packages/techtailor/laravel-wazirx-api)
+[![GitHub release](https://img.shields.io/github/release/techtailor/laravel-wazirx-api.svg?include_prereleases&style=for-the-badge&&colorB=7E57C2)](https://packagist.org/packages/techtailor/laravel-wazirx-api)
 [![GitHub issues](https://img.shields.io/github/issues/TechTailor/Laravel-Wazirx-Api.svg?style=for-the-badge)](https://github.com/TechTailor/Laravel-Wazirx-Api/issues)
 [![Software License](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge&&colorB=F27E40)](license.md)
 [![Total Downloads](https://img.shields.io/packagist/dt/techtailor/laravel-wazirx-api.svg?style=for-the-badge)](https://packagist.org/packages/techtailor/laravel-wazirx-api)

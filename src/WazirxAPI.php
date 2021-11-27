@@ -14,7 +14,7 @@ class WazirxAPI
     protected $api_key;             // API key
     protected $api_secret;          // API secret
     protected $api_url;             // API base URL
-    protected $recvWindow;          // API base URL
+    protected $recvWindow;          // API receiving window
     protected $synced = false;
     protected $response = null;
     protected $no_time_needed = [

@@ -33,7 +33,7 @@ WAZIRX_SECRET=YOUR_SECRET
 ```
 Or
 
-Open the published config file available at `config/wazirx.php` and add your API and Secret Keys:
+Open the published config file available at `config/wazirx-api.php` and add your API and Secret Keys:
 
 ```php
 return [

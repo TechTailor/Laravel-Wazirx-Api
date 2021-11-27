@@ -13,7 +13,7 @@ return [
 
     'auth' => [
         'key'        => env('WAZIRX_KEY', ''),
-        'secret'     => env('WAZIRX_SECRET', '')
+        'secret'     => env('WAZIRX_SECRET', ''),
     ],
 
     /*
@@ -26,7 +26,7 @@ return [
      */
 
     'urls' => [
-        'api'  => 'https://api.wazirx.com',
+        'api'   => 'https://api.wazirx.com',
         'sapi'  => 'https://api.wazirx.com/sapi/',
     ],
 
@@ -40,7 +40,7 @@ return [
      */
 
     'settings' => [
-        'timing' => env('WAZIRX_TIMING', 5000)
+        'timing' => env('WAZIRX_TIMING', 5000),
     ],
 
 ];

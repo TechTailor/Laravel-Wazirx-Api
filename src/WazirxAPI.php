@@ -27,31 +27,32 @@ class WazirxAPI
 
     /**
      * Constructor for WazirxAPI.
-     * @param string  $key     API key
-     * @param string  $secret  API secret
-     * @param string  $api_url API base URL (see config for example)
-     * @param integer $timing  Wazirx API timing setting (default 10000)
+     *
+     * @param string $key     API key
+     * @param string $secret  API secret
+     * @param string $api_url API base URL (see config for example)
+     * @param int    $timing  Wazirx API timing setting (default 10000)
      */
     public function __construct($api_key = null, $api_secret = null, $api_url = null, $timing = 10000)
     {
-        $this->api_key        = (! empty($api_key)) ? $api_key : config('wazirx-api.auth.key');
-        $this->api_secret     = (! empty($api_secret)) ? $api_secret : config('wazirx-api.auth.secret');
-        $this->api_url        = (! empty($api_url)) ? $api_url : config('wazirx-api.urls.sapi');
-        $this->recvWindow = (! empty($timing)) ? $timing : config('wazirx-api.settings.timing');
+        $this->api_key = (!empty($api_key)) ? $api_key : config('wazirx-api.auth.key');
+        $this->api_secret = (!empty($api_secret)) ? $api_secret : config('wazirx-api.auth.secret');
+        $this->api_url = (!empty($api_url)) ? $api_url : config('wazirx-api.urls.sapi');
+        $this->recvWindow = (!empty($timing)) ? $timing : config('wazirx-api.settings.timing');
     }
 
     /**
      * API Key and Secret Key setter function.
      * It's required for USER_DATA endpoints.
-     * https://docs.wazirx.com/#endpoint-security-type
+     * https://docs.wazirx.com/#endpoint-security-type.
      *
      * @param string $key    API Key
      * @param string $secret API Secret
      */
     public function setAPI($api_key, $api_secret)
     {
-       $this->api_key    = $api_key;
-       $this->api_secret = $api_secret;
+        $this->api_key = $api_key;
+        $this->api_secret = $api_secret;
     }
 
     //------ PUBLIC API CALLS --------
@@ -67,8 +68,9 @@ class WazirxAPI
     /**
      * Get Wazirx Server Time.
      *
-     * @return mixed
      * @throws \Exception
+     *
+     * @return mixed
      */
     public function getTime()
     {
@@ -78,8 +80,9 @@ class WazirxAPI
     /**
      * Get Wazirx Server Status.
      *
-     * @return mixed
      * @throws \Exception
+     *
+     * @return mixed
      */
     public function getServerStatus()
     {
@@ -89,8 +92,9 @@ class WazirxAPI
     /**
      * Get Wazirx Exchange Info.
      *
-     * @return mixed
      * @throws \Exception
+     *
+     * @return mixed
      */
     public function getExchangeInfo()
     {
@@ -100,8 +104,9 @@ class WazirxAPI
     /**
      * Get Wazirx 24hr Tickers Price Change Statistics.
      *
-     * @return mixed
      * @throws \Exception
+     *
+     * @return mixed
      */
     public function getTickers()
     {
@@ -111,14 +116,16 @@ class WazirxAPI
     /**
      * Get Wazirx 24hr Ticker of a particular symbol.
      *
-     * @param string $symbol   Crypto Coin Pair Symbol
-     * @return mixed
+     * @param string $symbol Crypto Coin Pair Symbol
+     *
      * @throws \Exception
+     *
+     * @return mixed
      */
     public function getTicker($symbol)
     {
         $data = [
-            'symbol' => $symbol
+            'symbol' => $symbol,
         ];
 
         return $this->publicRequest('v1/ticker/24hr', $data);
@@ -135,12 +142,14 @@ class WazirxAPI
     */
 
     /**
-     * Get current account information
+     * Get current account information.
      *
-     * @param  integer $iterator Number of times we've tried to get balances.
-     * @param  integer $max      Max times to retry the call.
-     * @return mixed
+     * @param int $iterator Number of times we've tried to get balances.
+     * @param int $max      Max times to retry the call.
+     *
      * @throws \Exception
+     *
+     * @return mixed
      */
     public function getAccountInfo($iterator = 1, $max = 3)
     {
@@ -150,12 +159,14 @@ class WazirxAPI
     }
 
     /**
-     * Get fund details for the current account
+     * Get fund details for the current account.
      *
-     * @param  integer $iterator Number of times we've tried to get balances.
-     * @param  integer $max      Max times to retry the call.
-     * @return mixed
+     * @param int $iterator Number of times we've tried to get balances.
+     * @param int $max      Max times to retry the call.
+     *
      * @throws \Exception
+     *
+     * @return mixed
      */
     public function getFunds($iterator = 1, $max = 3)
     {
@@ -167,16 +178,18 @@ class WazirxAPI
     /**
      * Get all account orders; "idle", "wait", "cancel" or "done".
      *
-     * @param  integer $iterator Number of times we've tried to get balances.
-     * @param  integer $max      Max times to retry the call.
-     * @param string $symbol Crypto Coin Pair Symbol
-     * @return mixed
+     * @param int    $iterator Number of times we've tried to get balances.
+     * @param int    $max      Max times to retry the call.
+     * @param string $symbol   Crypto Coin Pair Symbol
+     *
      * @throws \Exception
+     *
+     * @return mixed
      */
     public function getAllOrders($symbol, $iterator = 1, $max = 3)
     {
         $params = [
-            'symbol' => strtolower($symbol)
+            'symbol' => strtolower($symbol),
         ];
 
         $response = $this->privateRequest('v1/allOrders', $params);
@@ -185,12 +198,14 @@ class WazirxAPI
     }
 
     /**
-     * Get all open orders on a symbol for the current account
+     * Get all open orders on a symbol for the current account.
      *
-     * @param  integer $iterator Number of times we've tried to get balances.
-     * @param  integer $max      Max times to retry the call.
-     * @return mixed
+     * @param int $iterator Number of times we've tried to get balances.
+     * @param int $max      Max times to retry the call.
+     *
      * @throws \Exception
+     *
+     * @return mixed
      */
     public function getOpenOrders($iterator = 1, $max = 3)
     {
@@ -200,17 +215,19 @@ class WazirxAPI
     }
 
     /**
-     * Check an order's status for the current account
+     * Check an order's status for the current account.
      *
-     * @param  integer $iterator Number of times we've tried to get balances.
-     * @param  integer $max      Max times to retry the call.
-     * @return mixed
+     * @param int $iterator Number of times we've tried to get balances.
+     * @param int $max      Max times to retry the call.
+     *
      * @throws \Exception
+     *
+     * @return mixed
      */
     public function getOrderStatus($orderId, $iterator = 1, $max = 3)
     {
         $params = [
-            'orderId' => $orderId
+            'orderId' => $orderId,
         ];
 
         $response = $this->privateRequest('v1/order', $params);
@@ -222,24 +239,25 @@ class WazirxAPI
      * Make public requests (Security Type: NONE).
      *
      * @param string $url    URL Endpoint
-     * @param array $params  Required and optional parameters
+     * @param array  $params Required and optional parameters
      * @param string $method GET, POST, PUT, DELETE
-     * @return mixed
+     *
      * @throws \Exception
+     *
+     * @return mixed
      */
     private function publicRequest($url, $params = [], $method = 'GET')
     {
         // Build the POST data string
-        if (! in_array($url, $this->no_time_needed))
-        {
-            $params['timestamp']  = $this->milliseconds();
+        if (!in_array($url, $this->no_time_needed)) {
+            $params['timestamp'] = $this->milliseconds();
             $params['recvWindow'] = $this->recvWindow;
         }
 
-        $url = $this->api_url . $url;
+        $url = $this->api_url.$url;
 
         // Adding parameters to the url.
-        $url = $url . '?' . http_build_query($params);
+        $url = $url.'?'.http_build_query($params);
 
         return $this->sendApiRequest($url, $method);
     }
@@ -248,25 +266,23 @@ class WazirxAPI
      * Make public requests (Security Type: USER_DATA).
      *
      * @param string $url    URL Endpoint
-     * @param array $params  Required and optional parameters.
-     *
+     * @param array  $params Required and optional parameters.
      */
     private function privateRequest($url, $params = [], $method = 'GET')
     {
         // Build the POST data string
-        if (! in_array($url, $this->no_time_needed))
-        {
+        if (!in_array($url, $this->no_time_needed)) {
             $params['recvWindow'] = $this->recvWindow;
-            $params['timestamp']  = $this->milliseconds();
+            $params['timestamp'] = $this->milliseconds();
         }
 
         // Build the query to pass through.
-        $query   = http_build_query($params, '', '&');
+        $query = http_build_query($params, '', '&');
 
         // Set API key and sign the message
-        $signature    = hash_hmac('sha256', $query, $this->api_secret);
+        $signature = hash_hmac('sha256', $query, $this->api_secret);
 
-        $url = $this->api_url . $url . '?' . $query . '&signature=' . $signature;
+        $url = $this->api_url.$url.'?'.$query.'&signature='.$signature;
 
         return $this->sendApiRequest($url, $method);
     }
@@ -276,52 +292,54 @@ class WazirxAPI
      *
      * @param string $url    URL Endpoint with Query & Signature
      * @param string $method GET, POST, PUT, DELETE
-     * @return mixed
+     *
      * @throws \Exception
+     *
+     * @return mixed
      */
     private function sendApiRequest($url, $method)
     {
         try {
-            if ($method == 'POST')
+            if ($method == 'POST') {
                 $response = Http::withHeaders([
-                                'X-API-KEY' => $this->api_key
-                            ])->post($url);
-
-            elseif ($method == 'GET')
+                    'X-API-KEY' => $this->api_key,
+                ])->post($url);
+            } elseif ($method == 'GET') {
                 $response = Http::withHeaders([
-                                'X-API-KEY' => $this->api_key
-                            ])->get($url);
-        }
-        catch (ConnectionException $e) {
+                    'X-API-KEY' => $this->api_key,
+                ])->get($url);
+            }
+        } catch (ConnectionException $e) {
             return $error = [
-                'code' => $e->getCode(),
-                'error' => 'Host Not Found',
-                'message' => 'Could not resolve host: ' . $this->api_url
+                'code'    => $e->getCode(),
+                'error'   => 'Host Not Found',
+                'message' => 'Could not resolve host: '.$this->api_url,
             ];
-        }
-        catch (Exception $e) {
+        } catch (Exception $e) {
             return $error = [
-                'code' => $e->getCode(),
-                'error' => 'cUrl Error',
-                'message' => $e->getMessage()
+                'code'    => $e->getCode(),
+                'error'   => 'cUrl Error',
+                'message' => $e->getMessage(),
             ];
         }
 
         // If response if Ok. Return collection.
-        if($response->ok())
+        if ($response->ok()) {
             return $response->collect();
-        else
+        } else {
             return $this->handleError($response);
+        }
     }
 
     /**
      * Get the milliseconds from the system clock.
-     * @return integer
+     *
+     * @return int
      */
     private function milliseconds()
     {
-        list ($msec, $sec) = explode (' ', microtime ());
+        list($msec, $sec) = explode(' ', microtime());
 
-        return $sec . substr ($msec, 2, 3);
+        return $sec.substr($msec, 2, 3);
     }
 }

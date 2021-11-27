@@ -37,10 +37,10 @@ class WazirxAPI
      */
     public function __construct($api_key = null, $api_secret = null, $api_url = null, $timing = 10000)
     {
-        $this->api_key        = (! empty($api_key)) ? $api_key : config('wazirx.auth.key');
-        $this->api_secret     = (! empty($api_secret)) ? $api_secret : config('wazirx.auth.secret');
-        $this->api_url        = (! empty($api_url)) ? $api_url : config('wazirx.urls.sapi');
-        $this->recvWindow = (! empty($timing)) ? $timing : config('wazirx.settings.timing');
+        $this->api_key        = (! empty($api_key)) ? $api_key : config('wazirx-api.auth.key');
+        $this->api_secret     = (! empty($api_secret)) ? $api_secret : config('wazirx-api.auth.secret');
+        $this->api_url        = (! empty($api_url)) ? $api_url : config('wazirx-api.urls.sapi');
+        $this->recvWindow = (! empty($timing)) ? $timing : config('wazirx-api.settings.timing');
     }
 
     /**

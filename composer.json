@@ -1,0 +1,55 @@
+{
+    "name": "techtailor/laravel-wazirx-api",
+    "description": "WazirX Wrapper for Laravel",
+    "keywords": [
+        ""
+    ],
+    "homepage": "https://moinuddin.info",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "TechTailor",
+            "email": "hello@moinuddin.info",
+            "homepage": "https://moinuddin.info",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/contracts": "^7.0|^8.0",
+        "illuminate/http": "^7.0|^8.0",
+        "illuminate/support": "^7.0|^8.0",
+        "spatie/laravel-package-tools": "^1.9"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "TechTailor\\Wazirx\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "TechTailor\\Wazirx\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "psalm": "vendor/bin/psalm",
+        "test": "vendor/bin/phpunit --colors=always",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "TechTailor\\WazirxApi\\WazirxApiServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

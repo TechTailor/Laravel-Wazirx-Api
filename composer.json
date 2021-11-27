@@ -1,6 +1,6 @@
 {
     "name": "techtailor/laravel-wazirx-api",
-    "description": "WazirX Wrapper for Laravel",
+    "description": "A Laravel Wrapper for the WazirX API.",
     "keywords": [
         ""
     ],
@@ -27,12 +27,12 @@
     },
     "autoload": {
         "psr-4": {
-            "TechTailor\\Wazirx\\": "src/"
+            "TechTailor\\WazirxApi\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "TechTailor\\Wazirx\\Tests\\": "tests/"
+            "TechTailor\\WazirxApi\\Tests\\": "tests/"
         }
     },
     "scripts": {

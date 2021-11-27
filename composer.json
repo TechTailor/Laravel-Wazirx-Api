@@ -2,9 +2,12 @@
     "name": "techtailor/laravel-wazirx-api",
     "description": "A Laravel Wrapper for the WazirX API.",
     "keywords": [
-        ""
+        "wazirx",
+        "wazirx-api",
+        "laravel-wazirx",
+        "laravel-wazirx-api"
     ],
-    "homepage": "https://moinuddin.info",
+    "homepage": "https://github.com/TechTailor/Laravel-Wazirx-Api",
     "license": "MIT",
     "authors": [
         {

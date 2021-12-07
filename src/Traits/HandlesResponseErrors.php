@@ -51,6 +51,13 @@ trait HandlesResponseErrors
                                 'message' => 'API Key is missing / Invalid API Key.',
                             ];
                             break;
+                    case '2136':
+                        $error = [
+                            'code'    => '2136',
+                            'error'   => 'Api Response Error',
+                            'message' => 'Too many api requests. Wait a few minutes and try again.',
+                        ];
+                        break;
                 }
             } else {
                 // If client error a response status.
